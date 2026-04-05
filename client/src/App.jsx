@@ -4,6 +4,15 @@ import Todo from "./assets/Todo";
 export default function App() {
   const [todos, setTodos] = useState([]);
   const [content, setContent] = useState("");
+
+  useEffect(() => {
+    async function getTodos() {
+      const res = await fetch("/api/todos");
+      const todos = await res.json();
+      setTodos(todos);
+    }
+    getTodos();
+  }, []);
   const createNewTodo = async (e) => {
     e.preventDefault();
     if (content.length > 3) {
