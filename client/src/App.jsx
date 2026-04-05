@@ -4,19 +4,8 @@ import Todo from "./assets/Todo";
 export default function App() {
   const [todos, setTodos] = useState([]);
   const [content, setContent] = useState("");
-<<<<<<< HEAD
 
   useEffect(() => {
-    async function getTodos() {
-      const res = await fetch("/api/todos");
-      const todos = await res.json();
-      setTodos(todos);
-    }
-    getTodos();
-  }, []);
-=======
-  
-   useEffect(() => {
     async function getTodos() {
       const res = await fetch("/api/todos");
       const todosData = await res.json();
@@ -24,8 +13,6 @@ export default function App() {
     }
     getTodos();
   }, []);
-  
->>>>>>> 440d7f5b899d3d389e80d06150d78f2698bdbb58
   const createNewTodo = async (e) => {
     e.preventDefault();
     if (content.length > 3) {
