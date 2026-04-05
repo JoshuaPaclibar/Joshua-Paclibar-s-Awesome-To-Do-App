@@ -1,4 +1,6 @@
 require("dotenv").config();
+require("node:dns/promises").setServers(["1.1.1.1", "8.8.8.8"]);
+
 const express = require("express");
 const { connectToMongoDB } = require("./database");
 const path = require('path');
@@ -6,13 +8,11 @@ const path = require('path');
 const app = express();
 app.use(express.json());
 
-// Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'build')));
 
 const router = require("./routes");
 app.use("/api", router);
 
-// Handle any requests that don't match the ones above
 app.get(/.*/, (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
