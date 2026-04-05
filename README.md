@@ -33,6 +33,7 @@ Since the client and server are separate, we deploy the **Server** and have it s
 5.  **Environment Variables:**
     -   Add `MONGODB_URI` with your connection string.
     -   Add `PORT` with value `5000`.
+    -   i mistake add `NODE_VERSIOn` with value `version in your node that already installed to laptop`
 
 Render will build both the frontend and backend, then serve the app via the Express server.
 
